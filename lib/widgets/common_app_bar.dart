@@ -17,6 +17,7 @@ class CommonAppBar extends StatelessWidget implements PreferredSizeWidget {
     this.rightButtonColor,
     this.onRightButtonTap,
     this.titleColor,
+    this.leadingIconColor,
     this.onBackTap,
     this.appBarColor,
   });
@@ -29,6 +30,7 @@ class CommonAppBar extends StatelessWidget implements PreferredSizeWidget {
   final OnTab? onRightButtonTap;
   final OnTab? onBackTap;
   final Color? appBarColor;
+  final Color? leadingIconColor;
 
   @override
   Widget build(BuildContext context) {
@@ -57,10 +59,10 @@ class CommonAppBar extends StatelessWidget implements PreferredSizeWidget {
                       Navigator.of(context).pop();
                     },
                 icon: LocalAssets(
-                  imagePath: AppIconAssets.back_arrow,
+                  imagePath: AppIconAssets.backArrow,
                   height: SizeConfig.extraLarge21,
                   width: SizeConfig.extraLarge21,
-                  imgColor: Colors.black,
+                  imgColor: leadingIconColor ?? Colors.black,
                 ),
               ),
             if (title?.isNotEmpty ?? false)
