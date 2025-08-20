@@ -16,8 +16,7 @@ class Screen2 extends StatefulWidget {
 }
 
 class _Screen2State extends State<Screen2> {
-  
-/// IMAGE SWIPE UI WIDGET
+  /// IMAGE SWIPE UI WIDGET
   Widget buildDot({required bool isActive}) {
     return Container(
       margin: EdgeInsets.symmetric(horizontal: SizeConfig.size4),
@@ -30,7 +29,7 @@ class _Screen2State extends State<Screen2> {
     );
   }
 
-/// DOTS TEXT WIDGET 
+  /// DOTS TEXT WIDGET
   Widget bulletLine(String text) {
     return Row(
       crossAxisAlignment: CrossAxisAlignment.start,
@@ -53,6 +52,24 @@ class _Screen2State extends State<Screen2> {
     );
   }
 
+  /// AMENITIES WIDGET
+  Widget _amenityRow(String icon, String text) {
+    return Padding(
+      padding: EdgeInsets.only(bottom: SizeConfig.size10),
+      child: Row(
+        children: [
+          LocalAssets(imagePath: icon),
+          SizedBox(width: SizeConfig.size10),
+          CustomText(
+            text,
+            fontSize: SizeConfig.small,
+            fontWeight: FontWeight.w500,
+          ),
+        ],
+      ),
+    );
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -70,7 +87,7 @@ class _Screen2State extends State<Screen2> {
           Positioned.fill(
             child: Column(
               children: [
-                // Upper Image
+                /// Upper Image
                 SizedBox(
                   width: double.infinity,
                   height: SizeConfig.size400,
@@ -205,6 +222,9 @@ class _Screen2State extends State<Screen2> {
                               mainAxisAlignment: MainAxisAlignment.center,
                               children: [
                                 CommonCardWidget(
+                                  shadowColor: AppColors.shadowColor,
+                                  borderColor: AppColors.borderColor,
+                                  borderWidth: SizeConfig.size1,
                                   height: SizeConfig.size60,
                                   width: SizeConfig.size170,
                                   borderRadius: SizeConfig.size12,
@@ -228,6 +248,7 @@ class _Screen2State extends State<Screen2> {
 
                                 SizedBox(width: SizeConfig.size10),
                                 CommonCardWidget(
+                                  shadowColor: AppColors.shadowColor,
                                   borderWidth: SizeConfig.size1,
                                   borderColor: AppColors.green75,
                                   color: AppColors.green3DLightSolid,
@@ -384,128 +405,62 @@ class _Screen2State extends State<Screen2> {
                             Padding(
                               padding: EdgeInsets.only(left: SizeConfig.size20),
                               child: Row(
-                                mainAxisAlignment: MainAxisAlignment.start,
+                                mainAxisAlignment:
+                                    MainAxisAlignment.spaceBetween,
+                                crossAxisAlignment: CrossAxisAlignment.start,
                                 children: [
-                                  Column(
-                                    children: [
-                                      Row(
-                                        children: [
-                                          LocalAssets(
-                                            imagePath: AppIconAssets.ground,
-                                          ),
-                                          SizedBox(width: SizeConfig.size10),
-                                          CustomText(
-                                            "Artificial Turf",
-                                            fontSize: SizeConfig.small,
-                                            fontWeight: FontWeight.w500,
-                                          ),
-                                        ],
-                                      ),
-                                      SizedBox(height: SizeConfig.size10),
-                                      Row(
-                                        children: [
-                                          LocalAssets(
-                                            imagePath: AppIconAssets.glass,
-                                          ),
-                                          SizedBox(width: SizeConfig.size10),
-                                          CustomText(
-                                            "Drinking Water",
-                                            fontSize: SizeConfig.small,
-                                            fontWeight: FontWeight.w500,
-                                          ),
-                                        ],
-                                      ),
-                                      SizedBox(height: SizeConfig.size10),
-                                      Row(
-                                        children: [
-                                          LocalAssets(
-                                            imagePath: AppIconAssets.locker,
-                                          ),
-                                          SizedBox(width: SizeConfig.size10),
-                                          CustomText(
-                                            "Locker Room",
-                                            fontSize: SizeConfig.small,
-                                            fontWeight: FontWeight.w500,
-                                          ),
-                                        ],
-                                      ),
-                                      SizedBox(height: SizeConfig.size10),
-                                      Row(
-                                        children: [
-                                          LocalAssets(
-                                            imagePath: AppIconAssets.sofa,
-                                          ),
-                                          SizedBox(width: SizeConfig.size10),
-                                          CustomText(
-                                            "Seating Area",
-                                            fontSize: SizeConfig.small,
-                                            fontWeight: FontWeight.w500,
-                                          ),
-                                        ],
-                                      ),
-                                      SizedBox(height: SizeConfig.size10),
-                                    ],
+                                  Expanded(
+                                    child: Column(
+                                      crossAxisAlignment:
+                                          CrossAxisAlignment.start,
+                                      children: [
+                                        _amenityRow(
+                                          AppIconAssets.ground,
+                                          "Artificial Turf",
+                                        ),
+                                        _amenityRow(
+                                          AppIconAssets.glass,
+                                          "Drinking Water",
+                                        ),
+                                        _amenityRow(
+                                          AppIconAssets.locker,
+                                          "Locker Room",
+                                        ),
+                                        _amenityRow(
+                                          AppIconAssets.sofa,
+                                          "Seating Area",
+                                        ),
+                                      ],
+                                    ),
                                   ),
-                                  SizedBox(width: SizeConfig.size70),
-                                  Column(
-                                    children: [
-                                      Row(
-                                        children: [
-                                          LocalAssets(
-                                            imagePath: AppIconAssets.basketBall,
-                                          ),
-                                          SizedBox(width: SizeConfig.size10),
-                                          CustomText(
-                                            "Ball Boy",
-                                            fontSize: SizeConfig.small,
-                                            fontWeight: FontWeight.w500,
-                                          ),
-                                        ],
-                                      ),
-                                      SizedBox(height: SizeConfig.size10),
-                                      Row(
-                                        children: [
-                                          LocalAssets(
-                                            imagePath: AppIconAssets.light,
-                                          ),
-                                          SizedBox(width: SizeConfig.size10),
-                                          CustomText(
-                                            "Flood Lights",
-                                            fontSize: SizeConfig.small,
-                                            fontWeight: FontWeight.w500,
-                                          ),
-                                        ],
-                                      ),
-                                      SizedBox(height: SizeConfig.size10),
-                                      Row(
-                                        children: [
-                                          LocalAssets(
-                                            imagePath: AppIconAssets.parking,
-                                          ),
-                                          SizedBox(width: SizeConfig.size10),
-                                          CustomText(
-                                            "Parking",
-                                            fontSize: SizeConfig.small,
-                                            fontWeight: FontWeight.w500,
-                                          ),
-                                        ],
-                                      ),
-                                      SizedBox(height: SizeConfig.size10),
-                                      Row(
-                                        children: [
-                                          LocalAssets(
-                                            imagePath: AppIconAssets.shower,
-                                          ),
-                                          SizedBox(width: SizeConfig.size10),
-                                          CustomText(
-                                            "Showers",
-                                            fontSize: SizeConfig.small,
-                                            fontWeight: FontWeight.w500,
-                                          ),
-                                        ],
-                                      ),
-                                      SizedBox(height: SizeConfig.size10),
-                                    ],
+                                  SizedBox(width: SizeConfig.size40),
+                                  Expanded(
+                                    child: Column(
+                                      crossAxisAlignment:
+                                          CrossAxisAlignment.start,
+                                      children: [
+                                        SizedBox(height: SizeConfig.size2),
+                                        _amenityRow(
+                                          AppIconAssets.basketBall,
+                                          "Ball Boy",
+                                        ),
+                                        SizedBox(height: SizeConfig.size8),
+                                        _amenityRow(
+                                          AppIconAssets.light,
+                                          "Flood Lights",
+                                        ),
+                                        SizedBox(height: SizeConfig.size10),
+                                        _amenityRow(
+                                          AppIconAssets.parking,
+                                          "Parking",
+                                        ),
+                                        SizedBox(height: SizeConfig.size8),
+                                        _amenityRow(
+                                          AppIconAssets.shower,
+                                          "Showers",
+                                        ),
+                                      ],
+                                    ),
                                   ),
                                 ],
                               ),
@@ -656,13 +611,12 @@ class _Screen2State extends State<Screen2> {
                                     ],
                                   ),
                                 ),
-                                SizedBox(
-                                  width: SizeConfig.size30,
-                                ), // spacing between columns
-                                // RIGHT side rating bars
+                                SizedBox(width: SizeConfig.size30),
                                 Expanded(
                                   child: Padding(
-                                    padding: const EdgeInsets.only(right: 20.0),
+                                    padding: EdgeInsets.only(
+                                      right: SizeConfig.size20,
+                                    ),
                                     child: Column(
                                       crossAxisAlignment:
                                           CrossAxisAlignment.start,
