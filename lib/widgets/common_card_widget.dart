@@ -32,16 +32,17 @@ class CommonCardWidget extends StatelessWidget {
   Widget build(BuildContext context) {
     return Card(
       elevation: blurRadius,
-      shadowColor: shadowColor,
+      shadowColor: shadowColor ?? AppColors.transparent,
       color: color,
       shape: RoundedRectangleBorder(
         borderRadius: BorderRadius.circular(borderRadius),
-        side: borderWidth != null
-            ? BorderSide(
-                color: borderColor ?? AppColors.black,
-                width: borderWidth!,
-              )
-            : BorderSide.none,
+        side:
+            borderWidth != null
+                ? BorderSide(
+                  color: borderColor ?? AppColors.black,
+                  width: borderWidth!,
+                )
+                : BorderSide.none,
       ),
       child: Container(
         height: height,
@@ -50,12 +51,13 @@ class CommonCardWidget extends StatelessWidget {
         decoration: BoxDecoration(
           color: color,
           borderRadius: BorderRadius.circular(borderRadius),
-          border: borderWidth != null
-              ? Border.all(
-                  color: borderColor ?? AppColors.black,
-                  width: borderWidth!,
-                )
-              : null,
+          border:
+              borderWidth != null
+                  ? Border.all(
+                    color: borderColor ?? AppColors.black,
+                    width: borderWidth!,
+                  )
+                  : null,
         ),
         child: child,
       ),
