@@ -38,7 +38,7 @@ class _Screen1State extends State<Screen1> {
               children: [
                 SizedBox(
                   width: double.infinity,
-                  height: SizeConfig.size150,
+                  height: SizeConfig.size140,
                   child: LocalAssets(
                     imagePath: AppIconAssets.back1,
                     width: double.infinity,
